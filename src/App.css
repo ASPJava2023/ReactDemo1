@@ -1,9 +1,29 @@
+/* Root container */
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  
+
+  /* 🔥 Fullscreen GIF background */
+  background-image: url("https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  position: relative; /* Needed for overlay */
+}
+
+/* ✨ White overlay to make background lighter */
+#root::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.6); /* 0.6 = light overlay, adjust as needed */
+  z-index: -1; /* keep behind content */
 }
 
 .logo {
@@ -12,9 +32,11 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #d3d4e8aa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -36,7 +58,7 @@
 
 .card {
   padding: 2em;
-  background-color: rgb(59, 199, 238);
+  background-color: rgba(59, 199, 238, 0.9); /* added slight transparency */
   border-radius: 50%; 
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: tomato;
